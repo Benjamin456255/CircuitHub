@@ -28,6 +28,7 @@
       <div class="nav-section">
         <div class="nav-section-label">社区频道</div>
         <a href="community.html?channel=schematic" class="nav-item" data-channel="schematic"><span class="indicator green"></span> <span>电路图讨论</span> <span class="badge">38</span></a>
+        <a href="community.html?channel=pcb" class="nav-item" data-channel="pcb"><span class="indicator dim"></span> <span>PCB设计</span> <span class="badge">42</span></a>
         <a href="community.html?channel=help" class="nav-item" data-channel="help"><span class="indicator green"></span> <span>新手求助</span> <span class="badge">124</span></a>
         <a href="community.html?channel=showcase" class="nav-item" data-channel="showcase"><span class="indicator dim"></span> <span>项目展示</span> <span class="badge">56</span></a>
         <a href="community.html?channel=sharing" class="nav-item" data-channel="sharing"><span class="indicator dim"></span> <span>资源分享</span> <span class="badge">21</span></a>
@@ -66,7 +67,7 @@
       <!-- Shared Component Library -->
       <div class="section-header">
         <h2 class="section-title">共享组件库</h2>
-        <span style="font-size:12px;color:var(--text-muted)">社区成员共同维护 · 87 个组件</span>
+        <span style="font-size:12px;color:var(--text-muted)">社区成员共同维护 · 362 个组件</span>
       </div>
       <p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;max-width:640px;line-height:1.6">
         基于 Open Design 理念，社区成员可贡献、投票、选用共享的 PCB 封装库、电路图符号与设计规则脚本。每一位探索者都能参与设计决策。
@@ -77,7 +78,7 @@
       <!-- Open Source Projects -->
       <div class="section-header" style="margin-top:40px">
         <h2 class="section-title">社区开源项目</h2>
-        <span style="font-size:12px;color:var(--text-muted)">6 个活跃项目</span>
+        <span style="font-size:12px;color:var(--text-muted)">0</span>
       </div>
       <p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;max-width:640px;line-height:1.6">
         从精密仪器到效率工具，社区成员驱动的开源硬件项目。欢迎贡献代码、文档与测试反馈。
@@ -115,11 +116,11 @@
 <script>
 (function() {
   // Component library
-  var libItems = [
-    { title:"社区共享元件封装库", desc:"由社区成员共同维护的 KiCad 封装库，覆盖常用连接器、电源模块与 MCU。每周更新。", tags:["component-lib"], author:"CircuitHub 社区", stars:203, contributors:34 },
-    { title:"电路图符号库 v2.1", desc:"标准化的电路图符号集，支持 KiCad / Eagle / EasyEDA 多格式导出，开源维护。", tags:["component-lib"], author:"OpenSymbols Team", stars:178, contributors:21 },
-    { title:"3D 模型库（STEP 格式）", desc:"常用元器件的精确 3D 模型，支持直接导入 KiCad 做 3D 预览与导出。", tags:["component-lib"], author:"3D_Parts_Group", stars:112, contributors:18 },
-    { title:"PCB 模板库", desc:"常用开发板尺寸、安装孔位与面板模板，加速 PCB 设计起步阶段。", tags:["component-lib"], author:"TemplateLab", stars:67, contributors:14 },
+    var libItems = [
+    { title: "KiCad 官方封装库", desc: "KiCad 开发团队维护的官方原理图符号库与 PCB 封装库，覆盖常用阻容感、连接器、IC 封装。GitHub 开源，持续更新。", tags: ["component-lib"], author: "KiCad 官方", stars: 0, contributors: 220 },
+    { title: "Open Components Library", desc: "社区驱动的开源 EDA 元件库，支持 KiCad/Altium/Eagle 多格式导出，含 3D STEP 模型。所有元件经过 DRC 验证。", tags: ["component-lib"], author: "OCL 社区", stars: 0, contributors: 89 },
+    { title: "SparkFun Eagle 封装库", desc: "SparkFun 所有开源产品的封装库，包含数百个经过生产验证的封装，适合参考学习封装设计规范。", tags: ["component-lib"], author: "SparkFun Electronics", stars: 0, contributors: 45 },
+    { title: "PCB Library Expert 参数化封装", desc: "基于 IPC-7351 标准的参数化封装生成器，可根据焊盘尺寸自动生成精确封装，输出多种 EDA 格式。", tags: ["component-lib"], author: "PCB Libraries Inc.", stars: 0, contributors: 8 },
   ];
   var libGrid = document.getElementById("libGrid");
   if (libGrid) libGrid.innerHTML = libItems.map(function(p) {
