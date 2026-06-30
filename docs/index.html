@@ -101,6 +101,12 @@
             <div class="challenge-meta"><span>⏱ 剩余 4 天</span><span>23 人参与</span></div>
           </div>
           <div class="post-list" id="previewPosts"></div>
+
+          <div class="section-header" style="margin-top:24px">
+            <h2 class="section-title" style="font-size:13px">精选技术文章</h2>
+            <span style="font-size:11px;color:var(--text-muted)">TI · ADI · Henry Ott · Ridley</span>
+          </div>
+          <div class="article-list" id="previewArticles"></div>
         </div>
       </div>
 
@@ -129,7 +135,9 @@
   var grid = document.getElementById("featuredGrid");
   if (grid) grid.innerHTML = RESOURCES.slice(0, 4).map(renderResourceCard).join("");
   var posts = document.getElementById("previewPosts");
-  if (posts) posts.innerHTML = POSTS.slice(0, 4).map(renderPost).join("");
+  if (posts) posts.innerHTML = POSTS.slice(0, 3).map(renderPost).join("");
+  var arts = document.getElementById("previewArticles");
+  if (arts) arts.innerHTML = FEATURED_ARTICLES.slice(0, 3).map(renderArticle).join("");
 })();
 </script>
 
