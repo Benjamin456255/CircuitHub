@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".nav-item[data-channel]").forEach(item => {
     item.addEventListener("click", e => {
       e.preventDefault();
-      window.location.href = "/community?channel=" + item.dataset.channel;
+      window.location.href = "community.html?channel=" + item.dataset.channel;
     });
   });
 });
