@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开源项目 — CircuitHub</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="projects">
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="logo">
+        <div class="logo-icon">⎋</div>
+        <span>CircuitHub</span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-label">导航</div>
+        <a href="/" class="nav-item" data-page="index"><span>🏠</span> <span>首页</span></a>
+        <a href="/resources" class="nav-item" data-page="resources"><span>📚</span> <span>资源库</span></a>
+        <a href="/community" class="nav-item" data-page="community"><span>💬</span> <span>社区</span></a>
+        <a href="/projects" class="nav-item" data-page="projects"><span>🔧</span> <span>开源项目</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-label">社区频道</div>
+        <a href="/community?channel=schematic" class="nav-item" data-channel="schematic"><span class="indicator green"></span> <span>电路图讨论</span> <span class="badge">38</span></a>
+        <a href="/community?channel=help" class="nav-item" data-channel="help"><span class="indicator green"></span> <span>新手求助</span> <span class="badge">124</span></a>
+        <a href="/community?channel=showcase" class="nav-item" data-channel="showcase"><span class="indicator dim"></span> <span>项目展示</span> <span class="badge">56</span></a>
+        <a href="/community?channel=sharing" class="nav-item" data-channel="sharing"><span class="indicator dim"></span> <span>资源分享</span> <span class="badge">21</span></a>
+        <a href="/community?channel=simulation" class="nav-item" data-channel="simulation"><span class="indicator dim"></span> <span>仿真交流</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-label">开放设计</div>
+        <a href="/projects" class="nav-item"><span>🏗</span> <span>共享组件库</span> <span class="badge">87</span></a>
+        <a href="/community?channel=showcase" class="nav-item"><span>🎯</span> <span>每周挑战</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-avatar">CE</div>
+      <div class="user-info">
+        <div class="user-name">电路探索者</div>
+        <div class="user-role">贡献者</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a href="/">首页</a> <span>/</span> <span>开源项目</span>
+      </div>
+      <nav class="topbar-nav">
+        <a href="/" data-page="index">首页</a>
+        <a href="/resources" data-page="resources">资源</a>
+        <a href="/community" data-page="community">社区</a>
+        <a href="/projects" data-page="projects">项目</a>
+      </nav>
+    </header>
+
+    <div class="content">
+      <!-- Shared Component Library -->
+      <div class="section-header">
+        <h2 class="section-title">共享组件库</h2>
+        <span style="font-size:12px;color:var(--text-muted)">社区成员共同维护 · 87 个组件</span>
+      </div>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;max-width:640px;line-height:1.6">
+        基于 Open Design 理念，社区成员可贡献、投票、选用共享的 PCB 封装库、电路图符号与设计规则脚本。每一位探索者都能参与设计决策。
+      </p>
+
+      <div class="card-grid" id="libGrid"></div>
+
+      <!-- Open Source Projects -->
+      <div class="section-header" style="margin-top:40px">
+        <h2 class="section-title">社区开源项目</h2>
+        <span style="font-size:12px;color:var(--text-muted)">6 个活跃项目</span>
+      </div>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:20px;max-width:640px;line-height:1.6">
+        从精密仪器到效率工具，社区成员驱动的开源硬件项目。欢迎贡献代码、文档与测试反馈。
+      </p>
+
+      <div class="card-grid" id="projectGrid"></div>
+
+      <!-- Call to contribute -->
+      <div class="challenge-card" style="margin-top:32px;text-align:center">
+        <div class="challenge-badge">🔓 Open Design</div>
+        <div class="challenge-title">没有找到你需要的组件？</div>
+        <div class="challenge-desc">在社区发起提案，投票推动新组件入库。每一位贡献者都可以提交封装、符号或设计脚本。</div>
+        <div class="challenge-meta" style="justify-content:center"><span>📤 提交组件</span><span>🗳 参与投票</span><span>💡 发起提案</span></div>
+      </div>
+
+      <footer class="page-footer">
+        <a href="/">首页</a>
+        <a href="/resources">资源库</a>
+        <a href="/community">社区</a>
+        <span>CircuitHub · Open Design</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<!-- STATUS BAR -->
+<footer class="status-bar">
+  <span class="status-dot"></span>
+  <span>当前 <strong id="onlineCount">42</strong> 位学习者在线</span>
+  <span style="margin-left:auto;">CircuitHub v0.1</span>
+</footer>
+
+<script src="/js/data.js"></script>
+<script src="/js/main.js"></script>
+<script>
+(function() {
+  // Component library
+  var libItems = [
+    { title:"社区共享元件封装库", desc:"由社区成员共同维护的 KiCad 封装库，覆盖常用连接器、电源模块与 MCU。每周更新。", tags:["component-lib"], author:"CircuitHub 社区", stars:203, contributors:34 },
+    { title:"电路图符号库 v2.1", desc:"标准化的电路图符号集，支持 KiCad / Eagle / EasyEDA 多格式导出，开源维护。", tags:["component-lib"], author:"OpenSymbols Team", stars:178, contributors:21 },
+    { title:"3D 模型库（STEP 格式）", desc:"常用元器件的精确 3D 模型，支持直接导入 KiCad 做 3D 预览与导出。", tags:["component-lib"], author:"3D_Parts_Group", stars:112, contributors:18 },
+    { title:"PCB 模板库", desc:"常用开发板尺寸、安装孔位与面板模板，加速 PCB 设计起步阶段。", tags:["component-lib"], author:"TemplateLab", stars:67, contributors:14 },
+  ];
+  var libGrid = document.getElementById("libGrid");
+  if (libGrid) libGrid.innerHTML = libItems.map(function(p) {
+    return renderProjectCard(p);
+  }).join("");
+
+  // Open source projects
+  var projGrid = document.getElementById("projectGrid");
+  if (projGrid) projGrid.innerHTML = PROJECTS.map(function(p) {
+    return renderProjectCard(p);
+  }).join("");
+})();
+</script>
+
+</body>
+</html>
