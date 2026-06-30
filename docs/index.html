@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CircuitHub — 电路学习与开源设计社区</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-page="index">
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="logo">
+        <div class="logo-icon">⎋</div>
+        <span>CircuitHub</span>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-label">导航</div>
+        <a href="/" class="nav-item" data-page="index"><span>🏠</span> <span>首页</span></a>
+        <a href="/resources" class="nav-item" data-page="resources"><span>📚</span> <span>资源库</span></a>
+        <a href="/community" class="nav-item" data-page="community"><span>💬</span> <span>社区</span></a>
+        <a href="/projects" class="nav-item" data-page="projects"><span>🔧</span> <span>开源项目</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-label">社区频道</div>
+        <a href="/community?channel=schematic" class="nav-item" data-channel="schematic"><span class="indicator green"></span> <span>电路图讨论</span> <span class="badge">38</span></a>
+        <a href="/community?channel=help" class="nav-item" data-channel="help"><span class="indicator green"></span> <span>新手求助</span> <span class="badge">124</span></a>
+        <a href="/community?channel=showcase" class="nav-item" data-channel="showcase"><span class="indicator dim"></span> <span>项目展示</span> <span class="badge">56</span></a>
+        <a href="/community?channel=sharing" class="nav-item" data-channel="sharing"><span class="indicator dim"></span> <span>资源分享</span> <span class="badge">21</span></a>
+        <a href="/community?channel=simulation" class="nav-item" data-channel="simulation"><span class="indicator dim"></span> <span>仿真交流</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-label">开放设计</div>
+        <a href="/projects" class="nav-item"><span>🏗</span> <span>共享组件库</span> <span class="badge">87</span></a>
+        <a href="/community?channel=showcase" class="nav-item"><span>🎯</span> <span>每周挑战</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-avatar">CE</div>
+      <div class="user-info">
+        <div class="user-name">电路探索者</div>
+        <div class="user-role">贡献者</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <header class="topbar">
+      <nav class="topbar-nav">
+        <a href="/" data-page="index" class="active">首页</a>
+        <a href="/resources" data-page="resources">资源</a>
+        <a href="/community" data-page="community">社区</a>
+        <a href="/projects" data-page="projects">项目</a>
+      </nav>
+    </header>
+
+    <div class="content">
+      <!-- HERO -->
+      <section class="hero">
+        <h1>电路学习与开源设计社区</h1>
+        <p>从入门教程到仿真工具，从开源 PCB 项目到社区讨论——为每一位电路探索者构建的知识平台。</p>
+        <div class="search-hero">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="heroSearch" placeholder="搜索资源、教程、项目…" autocomplete="off">
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-num">1,200+</div><div class="hero-stat-label">学习资源</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">87</div><div class="hero-stat-label">共享组件</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">42</div><div class="hero-stat-label">在线学习者</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">开源项目</div></div>
+        </div>
+      </section>
+
+      <!-- PREVIEW COLUMNS -->
+      <div class="preview-columns">
+        <!-- Featured Resources -->
+        <div>
+          <div class="section-header">
+            <h2 class="section-title">精选资源</h2>
+            <a href="/resources" class="section-link">查看全部 →</a>
+          </div>
+          <div class="card-grid" id="featuredGrid"></div>
+        </div>
+
+        <!-- Community Preview -->
+        <div>
+          <div class="section-header">
+            <h2 class="section-title">社区动态</h2>
+            <a href="/community" class="section-link">进入社区 →</a>
+          </div>
+          <div class="challenge-card">
+            <div class="challenge-badge">🎯 本周挑战</div>
+            <div class="challenge-title">设计一个低噪声前置放大器</div>
+            <div class="challenge-desc">使用分立元件设计增益 ≥40dB、噪声系数 &lt;2dB 的前置放大器。提交原理图 + PCB 布局。</div>
+            <div class="challenge-meta"><span>⏱ 剩余 4 天</span><span>23 人参与</span></div>
+          </div>
+          <div class="post-list" id="previewPosts"></div>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <a href="/resources">资源库</a>
+        <a href="/community">社区</a>
+        <a href="/projects">开源项目</a>
+        <span>CircuitHub · Open Design</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<!-- STATUS BAR -->
+<footer class="status-bar">
+  <span class="status-dot"></span>
+  <span>当前 <strong id="onlineCount">42</strong> 位学习者在线</span>
+  <span style="margin-left:auto;">CircuitHub v0.1</span>
+</footer>
+
+<script src="/js/data.js"></script>
+<script src="/js/main.js"></script>
+<script>
+// Render featured resources on homepage
+(function() {
+  var grid = document.getElementById("featuredGrid");
+  if (grid) grid.innerHTML = RESOURCES.slice(0, 4).map(renderResourceCard).join("");
+  var posts = document.getElementById("previewPosts");
+  if (posts) posts.innerHTML = POSTS.slice(0, 4).map(renderPost).join("");
+})();
+</script>
+
+</body>
+</html>
