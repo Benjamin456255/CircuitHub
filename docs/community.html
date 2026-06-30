@@ -89,6 +89,14 @@
 
       <div class="post-list" id="postList"></div>
 
+
+      <!-- Featured Articles -->
+      <div class="section-header" style="margin-top:36px">
+        <h2 class="section-title">精选技术文章</h2>
+        <span style="font-size:12px;color:var(--text-muted)">来自 TI / ADI / Henry Ott / Ridley Engineering</span>
+      </div>
+      <div class="article-list" id="articleList"></div>
+
       <footer class="page-footer">
         <a href="./">首页</a>
         <a href="resources.html">资源库</a>
@@ -120,6 +128,8 @@
     document.getElementById("channelTitle").textContent = "#" + channelLabel(channel);
   }
   renderPostList(channel);
+  var articleList = document.getElementById("articleList");
+  if (articleList) articleList.innerHTML = FEATURED_ARTICLES.map(renderArticle).join("");
 })();
 </script>
 
