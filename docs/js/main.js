@@ -133,6 +133,23 @@ function renderPostList(filterChannel) {
   list.innerHTML = filtered.map(renderPost).join("");
 }
 
+
+// ---- Article rendering ----
+function renderArticle(a) {
+  return `
+    <div class="article-card">
+      <div class="article-source">${a.source}</div>
+      <div class="article-title">${a.title}</div>
+      <div class="article-desc">${a.desc}</div>
+      <div class="article-meta">
+        <span>${a.author}</span>
+        <span>${a.date}</span>
+        <a class="article-link" href="${a.link}" target="_blank" rel="noopener">阅读原文 ↗</a>
+      </div>
+      <div class="article-tags">${a.tags.map(t => '<span class="card-tag">' + t + '</span>').join("")}</div>
+    </div>`;
+}
+
 // ---- Project rendering ----
 function renderProjectCard(p) {
   let icon = "📦";
